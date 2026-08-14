@@ -4,8 +4,8 @@ import { Preloader } from "./scenes/Preloader";
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
-  width: 288,
-  height: 512,
+  width: 270,
+  height: 480,
   pixelArt: true,
   roundPixels: true,
   scale: {
