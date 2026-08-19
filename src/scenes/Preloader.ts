@@ -1,15 +1,18 @@
 import { Scene } from "phaser";
-import { ASSETS_IMAGES, ASSETS_IMAGES_ATLAS, ASSETS_KEYS } from "../game/assets";
+import { ASSETS_IMAGES, ASSETS_IMAGES_ATLAS} from "../game/assets";
 import { Bat } from "../game/Bat";
+import { Background } from "../game/Background";
+import { Obstacles } from "../game/Obstacles";
 
 export class Preloader extends Scene
 {
-    
     constructor(){
         super("Preloader");
     }
 
     private bat_obj: Bat;
+    private bg_obj: Background;
+    private obstacle_obj: Obstacles;
 
     preload(): void
     {
@@ -27,15 +30,16 @@ export class Preloader extends Scene
 
     create(): void
     {
-        this.add.image(0, 0, ASSETS_KEYS.BACKGROUND).setOrigin(0);
-        this.add.image(0,0, ASSETS_KEYS.FOREGROUND).setOrigin(0);
-
-        this.bat_obj = new Bat(ASSETS_KEYS.BAT_IDLE);
-        this.bat_obj.createBat(this);
+        this.bg_obj = new Background(this);
+        this.bat_obj = new Bat(this);
+        this.obstacle_obj = new Obstacles(this, this.bat_obj);
     }
 
     update(time: number, delta: number): void {
+
+        this.bat_obj.fallAnim();
         this.bat_obj.moveBat(delta);
+        this.bg_obj.parallax_movement(delta);
     }
 
 }

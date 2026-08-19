@@ -8,6 +8,13 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   height: 480,
   pixelArt: true,
   roundPixels: true,
+  physics : {
+    default: "arcade",
+    arcade: {
+      gravity: { x: 0, y: 400},
+      debug: true
+    }
+  },
   scale: {
     parent: 'game-container',
     autoCenter: Phaser.Scale.CENTER_BOTH,
