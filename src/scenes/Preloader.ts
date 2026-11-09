@@ -3,6 +3,7 @@ import { ASSETS_IMAGES, ASSETS_IMAGES_ATLAS} from "../game/assets";
 import { Bat } from "../game/Bat";
 import { Background } from "../game/Background";
 import { Obstacles } from "../game/Obstacles";
+import { ObstaclesManger } from "../game/ObstaclesManager";
 
 export class Preloader extends Scene
 {
@@ -12,7 +13,7 @@ export class Preloader extends Scene
 
     private bat_obj: Bat;
     private bg_obj: Background;
-    private obstacle_obj: Obstacles;
+    private obstacles: ObstaclesManger;
 
     preload(): void
     {
@@ -24,15 +25,13 @@ export class Preloader extends Scene
             this.load.spritesheet(assets.asset_key, assets.asset_path, { frameWidth: assets.width, frameHeight: assets.height });
         })
 
-        
-
     }
 
     create(): void
     {
         this.bg_obj = new Background(this);
         this.bat_obj = new Bat(this);
-        this.obstacle_obj = new Obstacles(this, this.bat_obj);
+        this.obstacles = new ObstaclesManger(this);
     }
 
     update(time: number, delta: number): void {
@@ -40,6 +39,7 @@ export class Preloader extends Scene
         this.bat_obj.fallAnim();
         this.bat_obj.moveBat(delta);
         this.bg_obj.parallax_movement(delta);
+        this.obstacles.moveObstacles(delta);
     }
 
 }

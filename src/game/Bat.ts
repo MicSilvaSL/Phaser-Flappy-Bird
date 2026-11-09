@@ -58,9 +58,9 @@ export class Bat {
 
         if (!this.can_use_input) return;
 
-        const key = Input.Keyboard.JustDown(this.cursors.space);
+        const key_code = Input.Keyboard.JustDown(this.cursors.space);
 
-        if (key){
+        if (key_code){
             this.sprite_physics.play(ASSETS_KEYS.BAT_IDLE);
             this.sprite_physics.setVelocityY(Bat.JUMP_FORCE * (1/delta)); 
         }
