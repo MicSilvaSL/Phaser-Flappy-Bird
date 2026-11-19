@@ -6,8 +6,7 @@ export const ASSETS_KEYS = Object.freeze({
     BAT_IDLE: "Bat_idle",
     BAT_DEATH: "Bat_death",
     GROUND: "ground",
-    OBSTACLE_UP: "Obstacle_up",
-    OBSTACLE_DOWN: "Obstacle_down",
+    OBSTACLE: "Obstacle",
     UI_BOX: "UI_box",
     UI_RECTANGLE:"UI_Rectangle",
 });
@@ -22,12 +21,8 @@ export const ASSETS_IMAGES = [
         asset_path: "assets/sprites/game objects/Foreground.png"
     },
     {
-        asset_key: ASSETS_KEYS.OBSTACLE_UP,
-        asset_path: "assets/sprites/game objects/Obstacle_Up.png"
-    },
-    {
-        asset_key: ASSETS_KEYS.OBSTACLE_DOWN,
-        asset_path: "assets/sprites/game objects/Obstacle_Down.png"
+        asset_key: ASSETS_KEYS.OBSTACLE,
+        asset_path: "assets/sprites/game objects/Obstacle.png"
     },
     {
         asset_key: ASSETS_KEYS.GROUND,

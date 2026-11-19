@@ -36,10 +36,11 @@ export class Preloader extends Scene
 
     update(time: number, delta: number): void {
 
+        this.obstacles.update(delta, this.bat_obj);
         this.bat_obj.fallAnim();
         this.bat_obj.moveBat(delta);
         this.bg_obj.parallax_movement(delta);
-        this.obstacles.moveObstacles(delta);
+        
     }
 
 }
